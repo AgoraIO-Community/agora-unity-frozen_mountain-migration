@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FM.LiveSwitch.Opus</name>
+    </assembly>
+    <members>
+        <member name="T:FM.LiveSwitch.Opus.ExpertFrameDuration">
+            <summary>
+            Frame durations for Opus, used when updating the "OPUS_SET_EXPERT_FRAME_DURATION_REQUEST"
+            (EncoderConfig.ExpertFrameDuration) configuration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Value">
+            <summary>
+            Gets the internal integer value representation of this frame duration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Argument">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_ARG".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Size2_5ms">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_2_5_MS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Size5ms">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_5_MS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Size10ms">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_10_MS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Size20ms">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_20_MS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Size40ms">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_40_MS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Size60ms">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_60_MS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ExpertFrameDuration.Variable">
+            <summary>
+            Gets a frame duration of Opus "OPUS_FRAMESIZE_VARIABLE".
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.Signal">
+            <summary>
+            Signal types for Opus, used when updating the "OPUS_SET_SIGNAL_REQUEST" (EncoderConfig.Signal) configuration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Signal.Value">
+            <summary>
+            Gets the internal integer value representation of this signal.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Signal.Auto">
+            <summary>
+            Gets an signal type of Opus "OPUS_AUTO".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Signal.Voice">
+            <summary>
+            Gets an signal type of Opus "OPUS_SIGNAL_VOICE".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Signal.Music">
+            <summary>
+            Gets an signal type of Opus "OPUS_SIGNAL_MUSIC".
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.Bandwidth">
+            <summary>
+            Audio bandwidths for Opus, used when updating the "OPUS_SET_BANDWIDTH" (EncoderConfig.Bandwidth) or
+            "OPUS_SET_MAX_BANDWIDTH" (EncoderConfig.MaxBandwidth) configuration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.Value">
+            <summary>
+            Gets the internal integer value representation of this signal.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.Auto">
+            <summary>
+            Gets a bandwidth of Opus "OPUS_AUTO".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.NarrowBand">
+            <summary>
+            Gets a bandwidth of Opus "OPUS_BANDWIDTH_NARROWBAND".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.MediumBand">
+            <summary>
+            Gets a bandwidth of Opus "OPUS_BANDWIDTH_MEDIUMBAND".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.WideBand">
+            <summary>
+            Gets a bandwidth of Opus "OPUS_BANDWIDTH_WIDEBAND".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.SuperWideBand">
+            <summary>
+            Gets a bandwidth of Opus "OPUS_BANDWIDTH_SUPERWIDEBAND".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Bandwidth.FullBand">
+            <summary>
+            Gets a bandwidth of Opus "OPUS_BANDWIDTH_FULLBAND".
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.Decoder">
+            <summary>
+            A libopus-based decoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Decoder.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Decoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Opus.Decoder" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Decoder.#ctor(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Opus.Decoder" /> class.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Decoder.#ctor(FM.LiveSwitch.IAudioOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Opus.Decoder" /> class.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Decoder.DoProcessFrame(FM.LiveSwitch.AudioFrame,FM.LiveSwitch.AudioBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Decoder.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Decoder.DoProcessSdpMediaDescription(FM.LiveSwitch.Sdp.MediaDescription,System.Boolean,System.Boolean)">
+            <summary>
+            Processes a SDP media description.
+            </summary>
+            <param name="mediaDescription">The media description.</param>
+            <param name="isOffer">if set to <c>true</c> [is offer].</param>
+            <param name="isLocalDescription">if set to <c>true</c> [is local description].</param>
+            
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.Encoder">
+            <summary>
+            A libopus-based encoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Encoder.CodecConfig">
+            <summary>
+            Gets a copy of the encoder codec's config.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Encoder.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Opus.Encoder" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.#ctor(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Opus.Encoder" /> class.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.#ctor(FM.LiveSwitch.IAudioOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Opus.Encoder" /> class.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Encoder.Quality">
+            <summary>
+            Gets or sets the quality.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Encoder.PercentLossToTriggerFEC">
+            <summary>
+            Gets or sets the loss percentage (0-100)
+            before forward error correction (FEC) is
+            activated (only if supported by the remote peer).
+            Affects encoded data only.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.Encoder.DisableFec">
+            <summary>
+            Gets or sets a value indicating whether FEC is disabled.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.SetCodecConfig(FM.LiveSwitch.Opus.EncoderConfig)">
+            <summary>
+            Sets the encoder configuration.
+            </summary>
+            <returns>0 on success, non-zero on failure.</returns>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.DoProcessSdpMediaDescription(FM.LiveSwitch.Sdp.MediaDescription,System.Boolean,System.Boolean)">
+            <summary>
+            Processes a SDP media description.
+            </summary>
+            <param name="mediaDescription">The media description.</param>
+            <param name="isOffer">if set to <c>true</c> [is offer].</param>
+            <param name="isLocalDescription">if set to <c>true</c> [is local description].</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.DoProcessFrame(FM.LiveSwitch.AudioFrame,FM.LiveSwitch.AudioBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Encoder.DoProcessControlFrames(FM.LiveSwitch.MediaControlFrame[])">
+            <summary>
+            Processes the control frames.
+            </summary>
+            <param name="controlFrames">The control frames.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.ApplicationType">
+            <summary>
+            Application types for Opus, used when updating the "OPUS_SET_APPLICATION" (EncoderConfig.Application) configuration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ApplicationType.Value">
+            <summary>
+            Gets the internal integer value representation of this application type.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ApplicationType.Voip">
+            <summary>
+            Gets an application type of Opus "OPUS_APPLICATION_VOIP".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ApplicationType.Audio">
+            <summary>
+            Gets an application type of Opus "OPUS_APPLICATION_AUDIO".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.ApplicationType.RestrictedLowDelay">
+            <summary>
+            Gets an application type of Opus "OPUS_APPLICATION_RESTRICTED_LOWDELAY".
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.EncoderConfig">
+            <summary>
+            Configuration for the Opus encoder. Properties map to Opus controls.
+            http://www.opus-codec.org/
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.EncoderConfig.#ctor">
+            <summary>
+            Creates a new copy of the Opus encoder configurations with default values.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.Auto">
+            <summary>
+            Gets the integral value that maps to the Opus "OPUS_AUTO" constant. Several int configuration
+            properties can be set to this value.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.Application">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_APPLICATION".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.ForceChannels">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_FORCE_CHANNELS".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.MaxBandwidth">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_MAX_BANDWIDTH".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.Bandwidth">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_BANDWIDTH".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.Dtx">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_DTX".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.Complexity">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_COMPLEXITY".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.ForwardErrorCorrection">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_INBAND_FEC".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.PacketLossPercent">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_PACKET_LOSS_PERC".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.IsVbr">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_VBR".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.UseConstrainedVBR">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_VBR_CONSTRAINT".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.Signal">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_SIGNAL".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.ExpertFrameDuration">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_EXPERT_FRAME_DURATION".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Opus.EncoderConfig.IsPredictionDisabled">
+            <summary>
+            Gets or sets a value that maps to "OPUS_SET_PREDICTION_DISABLED".
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.EncoderConfig.DeepCopy">
+            <summary>
+            Gets a deep copy of this configuration.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Opus.Utility">
+            <summary>
+            Opus-related utility functions.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Opus.Utility.Initialize">
+            <summary>
+            Initializes Opus native libraries.
+            </summary>
+        </member>
+    </members>
+</doc>

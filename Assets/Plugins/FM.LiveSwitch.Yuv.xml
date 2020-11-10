@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FM.LiveSwitch.Yuv</name>
+    </assembly>
+    <members>
+        <member name="T:FM.LiveSwitch.Yuv.FilterMode">
+            <summary>
+            A filter mode.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.FilterMode.None">
+            <summary>
+            Gets the value indicating no filter (point sample).
+            This is the fastest option, but produces the lowest quality.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.FilterMode.Linear">
+            <summary>
+            Gets the value indicating linear (horizontal only).
+            This is faster than bilinear, but produces lower quality.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.FilterMode.Bilinear">
+            <summary>
+            Gets the value indicating bilinear.
+            This is faster than box, but produces lower quality.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.FilterMode.Box">
+            <summary>
+            Gets the value indicating box.
+            This is the slowest option, but produces the highest quality.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Yuv.ImageConverter">
+            <summary>
+            A libyuv-based image converter.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.ImageConverter.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.ImageConverter.FilterMode">
+            <summary>
+            Gets or sets the filter mode.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.ImageConverter.Alignment">
+            <summary>
+            Gets or sets the alignment.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageConverter.#ctor(FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageConverter" /> class.
+            </summary>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageConverter.#ctor(FM.LiveSwitch.VideoFormat,FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageConverter" /> class.
+            </summary>
+            <param name="inputFormat">The input format.</param>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageConverter.#ctor(FM.LiveSwitch.IVideoOutput,FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageConverter" /> class.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageConverter.#ctor(FM.LiveSwitch.IVideoOutput[],FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageConverter" /> class.
+            </summary>
+            <param name="inputs">The inputs.</param>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageConverter.DoProcessFrame(FM.LiveSwitch.VideoFrame,FM.LiveSwitch.VideoBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageConverter.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Yuv.ImageScaler">
+            <summary>
+            A libyuv-based image scaler.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.ImageScaler.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Yuv.ImageScaler.FilterMode">
+            <summary>
+            Gets or sets the filter mode.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageScaler.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageScaler" /> class.
+            </summary>
+            <param name="scale">The scale.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageScaler.#ctor(System.Double,FM.LiveSwitch.IVideoOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageScaler" /> class.
+            </summary>
+            <param name="scale">The scale.</param>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageScaler.#ctor(System.Double,FM.LiveSwitch.IVideoOutput[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Yuv.ImageScaler" /> class.
+            </summary>
+            <param name="scale">The scale.</param>
+            <param name="inputs">The inputs.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageScaler.DoProcessFrame(FM.LiveSwitch.VideoFrame,FM.LiveSwitch.VideoBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.ImageScaler.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Yuv.Utility">
+            <summary>
+            YUV-related utility functions.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Yuv.Utility.Initialize">
+            <summary>
+            Initializes YUV native libraries.
+            </summary>
+        </member>
+    </members>
+</doc>

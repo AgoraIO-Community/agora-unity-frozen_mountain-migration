@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FM.LiveSwitch.Vpx</name>
+    </assembly>
+    <members>
+        <member name="T:FM.LiveSwitch.Vpx.TemporalLayerMode">
+            <summary>
+            Temporal layer modes for VPX output.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.TemporalLayerMode.Value">
+            <summary>
+            Gets the internal integer value representation of this temporal layer mode.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.TemporalLayerMode.NoLayering">
+            <summary>
+            Gets a the temporal layering mode VP9E_TEMPORAL_LAYERING_MODE_NOLAYERING.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.TemporalLayerMode.Bypass">
+            <summary>
+            Gets a the temporal layering mode VP9E_TEMPORAL_LAYERING_MODE_BYPASS.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.TemporalLayerMode.Mode0101">
+            <summary>
+            Gets a the temporal layering mode VP9E_TEMPORAL_LAYERING_MODE_0101.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.TemporalLayerMode.Mode0212">
+            <summary>
+            Gets a the temporal layering mode VP9E_TEMPORAL_LAYERING_MODE_0212.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.Codec">
+            <summary>
+            A libvpx-based codec.
+            </summary>
+        </member>
+        <member name="F:FM.LiveSwitch.Vpx.Codec.Vp8">
+            <summary>
+            Indicates the VP8 codec.
+            </summary>
+        </member>
+        <member name="F:FM.LiveSwitch.Vpx.Codec.Vp9">
+            <summary>
+            Indicates the VP9 codec.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.Decoder">
+            <summary>
+            A libvpx-based decoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Decoder.NeedsKeyFrame">
+            <summary>
+            Gets a value indicating whether the decoder needs a keyframe.
+            </summary>
+            <value>
+              <c>true</c> if [needs key frame]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Decoder.Codec">
+            <summary>
+            Gets the current codec.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Decoder.#ctor(FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vpx.Decoder" /> class.
+            </summary>
+            <param name="inputFormat">The input format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Decoder.DoProcessFrame(FM.LiveSwitch.VideoFrame,FM.LiveSwitch.VideoBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Decoder.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.Encoder">
+            <summary>
+            A libvpx-based encoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Encoder.CodecConfig">
+            <summary>
+            Gets the encoder configuration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Encoder.ForceKeyFrame">
+            <summary>
+            Gets or sets a value indicating whether a keyframe should be forced.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Encoder.Quality">
+            <summary>
+            Gets or sets the target output quality.
+            </summary>
+            <value>
+            The quality.
+            </value>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Encoder.Codec">
+            <summary>
+            Gets the current codec.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Encoder.#ctor(FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vpx.Encoder" /> class.
+            </summary>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Encoder.SetCodecConfig(FM.LiveSwitch.Vpx.EncoderConfig)">
+            <summary>
+            Sets the encoder configuration.
+            </summary>
+            <returns>0 on success, non-zero on failure.</returns>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Encoder.DoProcessFrame(FM.LiveSwitch.VideoFrame,FM.LiveSwitch.VideoBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Encoder.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Encoder.IsKeyFrame(FM.LiveSwitch.DataBuffer)">
+            <summary>
+            Determines whether the [buffer] contains a Key Frame.
+            </summary>
+            <param name="buffer">The buffer.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.BitDepth">
+            <summary>
+            Bit depths for VPX output.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.BitDepth.Value">
+            <summary>
+            Gets the internal integer value representation of this end usage mode.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.BitDepth.Bits8">
+            <summary>
+            Gets a bit depth of 8 bits.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.BitDepth.Bits10">
+            <summary>
+            Gets a bit depth of 10 bits.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.BitDepth.Bits12">
+            <summary>
+            Gets a bit depth of 12 bits.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.EndUsageMode">
+            <summary>
+            End usage modes for VPX.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EndUsageMode.Value">
+            <summary>
+            Gets the internal integer value representation of this end usage mode.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EndUsageMode.Vbr">
+            <summary>
+            Gets a KeyframeMode of type VPX_VBR.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EndUsageMode.Cbr">
+            <summary>
+            Gets a KeyframeMode of type VPX_CBR.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EndUsageMode.CQ">
+            <summary>
+            Gets a KeyframeMode of type VPX_CQ.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EndUsageMode.Q">
+            <summary>
+            Gets a KeyframeMode of type VPX_Q.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.KeyframeMode">
+            <summary>
+            Keyframe modes for VPX. 
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.KeyframeMode.Value">
+            <summary>
+            Gets the internal integer value representation of this keyframe mode.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.KeyframeMode.Fixed">
+            <summary>
+            Gets a KeyframeMode of type Fixed. This is deprecated by VPX and is equivalent
+            to KeyframeMode.Disabled.  To generate keyframes at fixed intervals, set the
+            EncoderConfig.KeyframeMinDistance = EncoderConfig.KeyframeMaxDistance.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.KeyframeMode.Auto">
+            <summary>
+            Gets a KeyframeMode of type Auto.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.KeyframeMode.Disabled">
+            <summary>
+            Gets a KeyframeMode of type Disabled.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.EncoderConfig">
+            <summary>
+            Config for the Vp8/Vp9 encoders. Properties map to VPX properties.
+            http://www.webmproject.org/docs/webm-sdk/structvpx__codec__enc__cfg.html
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.EncoderConfig.#ctor">
+            <summary>
+            Creates a new copy of the VPX encoder configurations with default values.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.BitDepth">
+            <summary>
+            Gets or sets a value that maps to "g_bit_depth".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.InputBitDepth">
+            <summary>
+            Gets or sets a value that maps to "g_input_bit_depth".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.LagInFrames">
+            <summary>
+            Gets or sets a value that maps to "g_lag_in_frames".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.Threads">
+            <summary>
+            Gets or sets a value that maps to "g_threads".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.DropFrameThreshold">
+            <summary>
+            Gets or sets a value that maps to "rc_dropframe_thresh".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.ResizeAllowed">
+            <summary>
+            Gets or sets a value that maps to "rc_resize_allowed".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.ScaledWidth">
+            <summary>
+            Gets or sets a value that maps to "rc_scaled_width".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.ScaledHeight">
+            <summary>
+            Gets or sets a value that maps to "rc_scaled_height".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.ResizeUpThreshold">
+            <summary>
+            Gets or sets a value that maps to "rc_resize_up_thresh".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.ResizeDownThreshold">
+            <summary>
+            Gets or sets a value that maps to "rc_resize_down_thresh".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.MinQuantizer">
+            <summary>
+            Gets or sets a value that maps to "rc_min_quantizer".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.MaxQuantizer">
+            <summary>
+            Gets or sets a value that maps to "rc_max_quantizer". If -1, then Quality field used.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.UndershootPercentage">
+            <summary>
+            Gets or sets a value that maps to "rc_undershoot_pct".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.OvershootPercentage">
+            <summary>
+            Gets or sets a value that maps to "rc_overshoot_pct".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.Profile">
+            <summary>
+            Gets or sets a value that maps to "g_profile".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.ErrorResilient">
+            <summary>
+            Gets or sets a value that maps to g_error_resilient
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TimebaseNumerator">
+            <summary>
+            Gets or sets a value that maps to "g_timebase.num".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TimebaseDenominator">
+            <summary>
+            Gets or sets a value that maps to "g_timebase.den".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.Usage">
+            <summary>
+            Gets or sets a value that maps to "g_usage".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.EndUsageMode">
+            <summary>
+            Gets or sets a value that maps to "rc_end_usage".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.BufferSize">
+            <summary>
+            Gets or sets a value that maps to "rc_buf_sz".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.BufferInitialSize">
+            <summary>
+            Gets or sets a value that maps to "rc_buf_initial_sz".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.BufferOptimalSize">
+            <summary>
+            Gets or sets a value that maps to "rc_buf_optimal_sz".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.Cpu">
+            <summary>
+            Gets or sets a value used for "VP8E_SET_CPUUSED". Range is [-16, 16] for VP8 and [-8, 8] for VP9.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.KeyframeMode">
+            <summary>
+            Gets or sets a value that makes to "kf_mode".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.KeyframeMinDistance">
+            <summary>
+            Gets or sets a value that maps to "kf_min_dist".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.KeyframeMaxDistance">
+            <summary>
+            Gets or sets a value that maps to "kf_max_dist".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.SpatialLayers">
+            <summary>
+            Gets or sets a value that maps to "ss_number_layers".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.SpatialEnableAutoAltRef">
+            <summary>
+            Gets or sets a value that maps to "ss_enable_auto_alt_ref".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.SpatialTargetBitrate">
+            <summary>
+            Gets or sets a value that maps to "ss_target_bitrate".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TemporalLayers">
+            <summary>
+            Gets or sets a value that maps to "ts_number_layers".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TemporalLayerMode">
+            <summary>
+            Gets or sets a value that maps to "temporal_layering_mode".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TemporalPeriodicity">
+            <summary>
+            Gets or sets a value that maps to "ts_periodicity".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TemporalTargetBitrate">
+            <summary>
+            Gets or sets a value that maps to "ts_target_bitrate".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TemporalRateDecimator">
+            <summary>
+            Gets or sets a value that maps to "ts_rate_decimator".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.TemporalPattern">
+            <summary>
+            Gets or sets a value that maps to "ts_layer_id".
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.EncoderConfig.LayerTargetBitrate">
+            <summary>
+            Gets or sets a value that maps to "layer_trget_bitrater".
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.EncoderConfig.DeepCopy">
+            <summary>
+            Gets a deep copy of this configuration.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Native.NeedsKeyFrame">
+            <summary>
+            Gets or sets a value indicating whether the decoder needs a key frame.
+            </summary>
+            <value>
+              <c>true</c> if decoder needs a key frame; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.Native.Bitrate">
+            <summary>
+            Gets or sets the bitrate.
+            </summary>
+            <value>
+            The bitrate.
+            </value>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Native.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vpx.Native"/> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Native.Destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Native.Encode(FM.LiveSwitch.VideoBuffer,FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Takes an I420 buffer, encodes and returns a VPX buffer.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Native.Decode(FM.LiveSwitch.VideoBuffer,FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Decodes a buffer containing a VPX format to an I420 format.
+            </summary>
+            <param name="encodedFrame">The encoded frame.</param>
+            <param name="outputFormat">The output format.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.ErrorResilientType">
+            <summary>
+            Error resiliency flags for VPX.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.ErrorResilientType.Default">
+            <summary>
+            Gets the flag position for VPX_ERROR_RESILIENT_DEFAULT.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vpx.ErrorResilientType.Partitions">
+            <summary>
+            Gets the flag position for VPX_ERROR_RESILIENT_PARTITIONS.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.NativeEncoderConfig.ZeroArray(System.Int32[])">
+            <summary>
+            Set all values in the array to 0.  This is to work around a bug where converter will convert an
+            array of 0s to an array of nils in Objective-C.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vpx.Utility">
+            <summary>
+            VPX-related utility functions.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vpx.Utility.Initialize">
+            <summary>
+            Initializes VPX native libraries.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Vp8.Decoder">
+            <summary>
+            A libvpx-based VP8 decoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp8.Decoder.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp8.Decoder.Codec">
+            <summary>
+            Gets the current codec.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp8.Decoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp8.Decoder"/> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp8.Decoder.#ctor(FM.LiveSwitch.IVideoOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp8.Decoder"/> class.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp8.Decoder.IsKeyFrame(FM.LiveSwitch.DataBuffer)">
+            <summary>
+            Determines whether a data buffer represents a keyframe.
+            </summary>
+            <param name="dataBuffer">The data buffer.</param>
+            
+        </member>
+        <member name="T:FM.LiveSwitch.Vp8.Encoder">
+            <summary>
+            A libvpx-based VP8 encoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp8.Encoder.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp8.Encoder.Codec">
+            <summary>
+            Gets the current codec.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp8.Encoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp8.Encoder"/> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp8.Encoder.#ctor(FM.LiveSwitch.IVideoOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp8.Encoder"/> class.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp8.Encoder.IsKeyFrame(FM.LiveSwitch.DataBuffer)">
+            <summary>
+            Determines whether the [buffer] contains a Key Frame.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            
+        </member>
+        <member name="T:FM.LiveSwitch.Vp9.Decoder">
+            <summary>
+            A libvpx-based VP9 decoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp9.Decoder.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp9.Decoder.Codec">
+            <summary>
+            Gets the current codec.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp9.Decoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp9.Decoder"/> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp9.Decoder.#ctor(FM.LiveSwitch.IVideoOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp9.Decoder"/> class.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp9.Decoder.IsKeyFrame(FM.LiveSwitch.DataBuffer)">
+            <summary>
+            Determines whether a data buffer represents a keyframe.
+            </summary>
+            <param name="dataBuffer">The data buffer.</param>
+            
+        </member>
+        <member name="T:FM.LiveSwitch.Vp9.Encoder">
+            <summary>
+            A libvpx-based VP9 encoder.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp9.Encoder.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Vp9.Encoder.Codec">
+            <summary>
+            Gets the current codec.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp9.Encoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp9.Encoder"/> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp9.Encoder.#ctor(FM.LiveSwitch.IVideoOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Vp9.Encoder"/> class.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Vp9.Encoder.IsKeyFrame(FM.LiveSwitch.DataBuffer)">
+            <summary>
+            Determines whether the [buffer] contains a Key Frame.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            
+        </member>
+    </members>
+</doc>

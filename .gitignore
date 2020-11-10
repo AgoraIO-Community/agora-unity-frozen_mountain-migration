@@ -10,6 +10,8 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+/[Aa]ssets/AgoraEngine/Plugins/iOS/AgoraRtcKit.framework
+
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 

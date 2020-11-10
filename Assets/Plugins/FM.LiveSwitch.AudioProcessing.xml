@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FM.LiveSwitch.AudioProcessing</name>
+    </assembly>
+    <members>
+        <member name="T:FM.LiveSwitch.AudioProcessing.AecProcessor">
+            <summary>
+            A libaudioprocessing-based AEC processor.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.AudioProcessing.AecProcessor.TailLength">
+            <summary>
+            Gets or sets the tail length in milliseconds.
+            Minimum allowed value is 32.
+            Maximum allowed value is 512.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.AudioProcessing.AecProcessor.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor" /> class.
+            </summary>
+            <param name="config">The input/output configuration.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(FM.LiveSwitch.AudioFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor" /> class.
+            </summary>
+            <param name="format">The input/output format.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(FM.LiveSwitch.IAudioOutput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor"/> class.
+            </summary>
+            <param name="microphone">The microphone.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor" /> class.
+            </summary>
+            <param name="tailLength">The tail length in milliseconds.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(FM.LiveSwitch.AudioConfig,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor" /> class.
+            </summary>
+            <param name="config">The input/output configuration.</param>
+            <param name="tailLength">The tail length in milliseconds.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(FM.LiveSwitch.AudioFormat,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor" /> class.
+            </summary>
+            <param name="format">The input/output format.</param>
+            <param name="tailLength">The tail length in milliseconds.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.#ctor(FM.LiveSwitch.IAudioOutput,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.AudioProcessing.AecProcessor"/> class.
+            </summary>
+            <param name="microphone">The microphone.</param>
+            <param name="tailLength">The tail length in milliseconds.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.DoProcessFrame(FM.LiveSwitch.AudioFrame,FM.LiveSwitch.AudioBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.ProcessSpeakerFrame(FM.LiveSwitch.AudioFrame)">
+            <summary>
+            Processes a speaker frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.AecProcessor.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.AudioProcessing.Utility">
+            <summary>
+            AudioProcessing-related utility functions.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.AudioProcessing.Utility.Initialize">
+            <summary>
+            Initializes AudioProcessing native libraries.
+            </summary>
+        </member>
+    </members>
+</doc>

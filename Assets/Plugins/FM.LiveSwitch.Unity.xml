@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FM.LiveSwitch.Unity</name>
+    </assembly>
+    <members>
+        <member name="T:FM.LiveSwitch.Unity.TextLogProvider">
+            <summary>
+            Log provider that uses a Unity Text element.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.TextLogProvider.Text">
+            <summary>
+            Gets the Unity Text element.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.TextLogProvider.#ctor(UnityEngine.UI.Text)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.TextLogProvider"/> class using <see cref="F:FM.LiveSwitch.LogLevel.Info"/>.
+            </summary>
+            <param name="text">The Text element.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.TextLogProvider.#ctor(UnityEngine.UI.Text,FM.LiveSwitch.LogLevel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.TextLogProvider"/> class.
+            </summary>
+            <param name="text">The Text element.</param>
+            <param name="level">The log level.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.TextLogProvider.Destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.TextLogProvider.DoLog(FM.LiveSwitch.LogEvent)">
+            <summary>
+            Logs a message at the specified log level.
+            </summary>
+            <param name="logEvent">The log event details.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.DebugLogProvider">
+            <summary>
+            Log provider that uses UnityEngine.Debug.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.DebugLogProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.DebugLogProvider"/> class using <see cref="F:FM.LiveSwitch.LogLevel.Info"/>.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.DebugLogProvider.#ctor(FM.LiveSwitch.LogLevel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.DebugLogProvider"/> class.
+            </summary>
+            <param name="level">The log level.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.DebugLogProvider.DoLog(FM.LiveSwitch.LogEvent)">
+            <summary>
+            Logs a message at the specified log level.
+            </summary>
+            <param name="logEvent">The log event details.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.AudioClipSink">
+            <summary>
+            An AudioClip-based audio sink.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSink.GetBufferDelay(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Gets the buffer delay.
+            </summary>
+            <param name="config">The config.</param>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.AudioClipSink.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.AudioClipSink.GameObject">
+            <summary>
+            Gets the game object.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSink.#ctor(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.AudioClipSink" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSink.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSink.DoProcessFrame(FM.LiveSwitch.AudioFrame,FM.LiveSwitch.AudioBuffer)">
+            <summary>
+            Processes a frame.
+            </summary>
+            <param name="frame">The frame.</param>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.AudioClipSource">
+            <summary>
+            An AudioClip-based audio source.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.GetBufferDelay(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Gets the buffer delay.
+            </summary>
+            <param name="config">The config.</param>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.AudioClipSource.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.AudioClipSource.GameObject">
+            <summary>
+            Gets the game object.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.AudioClipSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.#ctor(FM.LiveSwitch.AudioConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.AudioClipSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.GetInputs">
+            <summary>
+            Gets the available inputs.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.DoStart">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.AudioClipSource.DoStop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.RectTransformSink">
+            <summary>
+            A RectTransform-based view sink.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.RectTransformSink.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.RectTransformSink.View">
+            <summary>
+            Gets the view.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.RectTransformSink.Texture">
+            <summary>
+            Gets the texture.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.RectTransformSink.GameObject">
+            <summary>
+            Gets the game object.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.RectTransformSink.ViewScale">
+            <summary>
+            Gets or sets the view scale.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.RectTransformSink.ViewMirror">
+            <summary>
+            Gets or sets a value indicating whether the view is mirrored.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.RectTransformSink.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.RectTransformSink" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.RectTransformSink.#ctor(FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.RectTransformSink" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.RectTransformSink.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.RectTransformSink.RenderBuffer(FM.LiveSwitch.VideoBuffer)">
+            <summary>
+            Renders the buffer.
+            </summary>
+            <param name="inputBuffer">The input buffer.</param>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.TaskExtensions">
+            <summary>
+            Extensions to Task for Unity.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.TaskExtensions.AsIEnumerator(System.Threading.Tasks.Task)">
+            <summary>
+            Runs the task as an IEnumerator.
+            </summary>
+            <param name="task">The task.</param>
+            <returns>The IEnumerator.</returns>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.Texture2DSourceBase">
+            <summary>
+            Base class for Texture2D-based video sources.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.Texture2DSourceBase.GameEngineFrameRate">
+            <summary>
+            Gets or sets whether we should use the game engine frame rate.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSourceBase.ProcessTargetFrameRate(System.Int32)">
+            <summary>
+            Processes the target frame rate.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSourceBase.#ctor(FM.LiveSwitch.VideoFormat,FM.LiveSwitch.ScreenConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.WebCamTextureSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSourceBase.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSourceBase.DoStart">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSourceBase.DoStop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSourceBase.GetTexture2D">
+            <summary>
+            Gets the current Texture2D.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.Texture2DSource">
+            <summary>
+            A Texture2D-based video source.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.Texture2DSource.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.Texture2DSource.Texture2D">
+            <summary>
+            Gets or sets the underlying Texture2D.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.Texture2DSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.Texture2DSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.#ctor(FM.LiveSwitch.VideoFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.Texture2DSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.#ctor(FM.LiveSwitch.VideoFormat,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.Texture2DSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.#ctor(UnityEngine.Texture2D)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.Texture2DSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.#ctor(UnityEngine.Texture2D,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.Texture2DSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.Texture2DSource.GetTexture2D">
+            <summary>
+            Gets the current Texture2D.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.EventBehaviour">
+            <summary>
+            Behaviour class that exposes lifecycle events.
+            </summary>
+        </member>
+        <member name="E:FM.LiveSwitch.Unity.EventBehaviour.OnStart">
+            <summary>
+            Raised when Start is called.
+            </summary>
+        </member>
+        <member name="E:FM.LiveSwitch.Unity.EventBehaviour.OnUpdate">
+            <summary>
+            Raised when Update is called.
+            </summary>
+        </member>
+        <member name="E:FM.LiveSwitch.Unity.EventBehaviour.OnFixedUpdate">
+            <summary>
+            Raised when FixedUpdate is called.
+            </summary>
+        </member>
+        <member name="E:FM.LiveSwitch.Unity.EventBehaviour.OnLateUpdate">
+            <summary>
+            Raised when LateUpdate is called.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.LayoutManager">
+            <summary>
+            A Component-based layout manager.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.LayoutManager.Container">
+            <summary>
+            Gets the container.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.LayoutManager.Mode">
+            <summary>
+            Gets or sets the mode used by the layout engine.
+            Defaults to <see cref="F:FM.LiveSwitch.LayoutMode.FloatLocal"/>.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.#ctor(UnityEngine.RectTransform)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.LayoutManager" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.#ctor(UnityEngine.RectTransform,FM.LiveSwitch.LayoutPreset)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.LayoutManager" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.Destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.AddView(UnityEngine.RectTransform)">
+            <summary>
+            Adds a view to the container.
+            </summary>
+            <param name="view">The view to add.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.RemoveView(UnityEngine.RectTransform)">
+            <summary>
+            Removes a view from the container.
+            </summary>
+            <param name="view">The view to remove.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.DispatchToMainThread(FM.LiveSwitch.Action2{System.Object,System.Object},System.Object,System.Object)">
+            <summary>
+            Dispatches an action to the main thread.
+            </summary>
+            <param name="action">The action to invoke.</param>
+            <param name="arg1">The first argument.</param>
+            <param name="arg2">The second argument.</param>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.LayoutManager.Layout">
+            <summary>
+            Positions the local and remote views within the layout.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.ScreenSource">
+            <summary>
+            A ScreenCapture-based video source.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.ScreenSource.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.ScreenSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.ScreenSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.ScreenSource.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.ScreenSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.ScreenSource.GetTexture2D">
+            <summary>
+            Gets the current Texture2D.
+            </summary>
+        </member>
+        <member name="T:FM.LiveSwitch.Unity.WebCamTextureSource">
+            <summary>
+            A WebCamTexture-based video source.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.Label">
+            <summary>
+            Gets a label that identifies this class.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.View">
+            <summary>
+            Gets the view.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.Device">
+            <summary>
+            Gets the device.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.GameObject">
+            <summary>
+            Gets the game object.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.ViewScale">
+            <summary>
+            Gets or sets the view scale.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.ViewMirror">
+            <summary>
+            Gets or sets a value indicating whether the view is mirrored.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.WebCamTexture">
+            <summary>
+            Gets the underlying WebCamTexture.
+            </summary>
+        </member>
+        <member name="P:FM.LiveSwitch.Unity.WebCamTextureSource.PreferFrontFacing">
+            <summary>
+            Gets whether the device list is sorted to prefer
+            front-facing cameras.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.WebCamTextureSource.#ctor(FM.LiveSwitch.VideoConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.WebCamTextureSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.WebCamTextureSource.#ctor(FM.LiveSwitch.VideoConfig,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FM.LiveSwitch.Unity.WebCamTextureSource" /> class.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.WebCamTextureSource.DoDestroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.WebCamTextureSource.GetInputs">
+            <summary>
+            Gets the available inputs.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.WebCamTextureSource.DoStart">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:FM.LiveSwitch.Unity.WebCamTextureSource.DoStop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+    </members>
+</doc>
