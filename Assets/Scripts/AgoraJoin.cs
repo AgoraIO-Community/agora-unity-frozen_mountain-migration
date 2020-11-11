@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using agora_gaming_rtc;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -10,8 +8,7 @@ public class AgoraJoin : MonoBehaviour
     public string appID;
     public static IRtcEngine mRtcEngine;
 
-    public Text userName;
-    public Text channelName;
+    public Text channelNameText;
 
     private void Awake()
     {
@@ -28,18 +25,9 @@ public class AgoraJoin : MonoBehaviour
 
     public void JoinChannelButton()
     {
-        mRtcEngine.JoinChannel(channelName.text);
+        mRtcEngine.JoinChannel(channelNameText.text);
         
         SceneManager.LoadScene("Channel");
-    }
-
-    public void LeaveChannelButton()
-    {
-        if(mRtcEngine != null)
-        {
-            mRtcEngine.LeaveChannel();
-            mRtcEngine.DisableVideoObserver();
-        }
     }
 
     private void OnApplicationQuit()

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using agora_gaming_rtc;
 using UnityEngine.UI;
@@ -11,10 +9,9 @@ public class AgoraChannel : MonoBehaviour
     public Transform spawnPoint;
 
     private int usersInChannel = 0;
-
-    AudioRecordingDeviceManager audioDevice;
     public Text audioDeviceText;
     public Text videoDeviceText;
+    public Text channelIDText;
 
     void Start()
     {
@@ -23,26 +20,8 @@ public class AgoraChannel : MonoBehaviour
             AgoraJoin.mRtcEngine.OnJoinChannelSuccess = OnJoinChannelSuccessHandler;
             AgoraJoin.mRtcEngine.OnUserJoined = OnUserJoinedHandler;
             AgoraJoin.mRtcEngine.OnUserOffline = OnUserOfflineHandler;
-
-            //audioDevice = AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine);
         }
     }
-
-    //private void Update()
-    //{
-    //    if (AgoraJoin.mRtcEngine == null)
-    //        return;
-
-    //    AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).CreateAAudioRecordingDeviceManager();
-    //    string audioDeviceName = "null";
-    //    string audioDeviceID = "null";
-
-    //    AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).GetCurrentRecordingDeviceInfo(ref audioDeviceName, ref audioDeviceID);
-
-
-    //    print("audiodevice name: " + audioDeviceName);
-    //    print("audiodevice ID: " + audioDeviceID);
-    //}
 
     // create video surface objects to hold the agora video feeds
     public void LeaveChannelButton()
@@ -50,6 +29,7 @@ public class AgoraChannel : MonoBehaviour
         if (AgoraJoin.mRtcEngine != null)
         {
             AgoraJoin.mRtcEngine.LeaveChannel();
+            AgoraJoin.mRtcEngine.DisableVideo();
             AgoraJoin.mRtcEngine.DisableVideoObserver();
         }
 
@@ -61,28 +41,27 @@ public class AgoraChannel : MonoBehaviour
         Debug.Log("JoinChannelSuccessHandler: uid = " + uid);
         VideoSurface localVideoSurface = localVideoImage.AddComponent<VideoSurface>();
 
-        localVideoSurface.SetForUser(uid);
-        localVideoSurface.SetEnable(true);
-        localVideoSurface.SetVideoSurfaceType(AgoraVideoSurfaceType.RawImage);
-        localVideoSurface.SetGameFps(30);
-
+        // Get the name name of your machine's microphone to display in the bottom panel
         string audioDeviceName = "null";
         string audioDeviceID = "null";
         AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).CreateAAudioRecordingDeviceManager();
         AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).GetCurrentRecordingDeviceInfo(ref audioDeviceName, ref audioDeviceID);
         audioDeviceText.text = audioDeviceName;
 
+        // Get the name of your machine's webcam to display
         string videoDeviceName = "null";
         string videoDeviceID = "null";
         VideoDeviceManager.GetInstance(AgoraJoin.mRtcEngine).CreateAVideoDeviceManager();
         VideoDeviceManager.GetInstance(AgoraJoin.mRtcEngine).GetVideoDevice(0, ref videoDeviceName, ref videoDeviceID);
         videoDeviceText.text = videoDeviceName;
+
+        // Set user name to name on the top panel
+        channelIDText.text = channelName;
     }
 
     void OnUserJoinedHandler(uint uid, int elapsed)
     {
         Debug.Log("onUserJoined: uid = " + uid + " elapsed = " + elapsed);
-        // this is called in main thread
 
         // find a game object to render video stream from 'uid'
         GameObject go = GameObject.Find(uid.ToString());
@@ -93,7 +72,7 @@ public class AgoraChannel : MonoBehaviour
 
         // create a GameObject and assign to this new user
         VideoSurface videoSurface = makeImageSurface(uid.ToString());
-        if (!ReferenceEquals(videoSurface, null))
+        if (videoSurface != null)
         {
             // configure videoSurface
             videoSurface.SetForUser(uid);
@@ -105,7 +84,11 @@ public class AgoraChannel : MonoBehaviour
         usersInChannel++;
     }
 
-    private const float Offset = 100;
+    void OnUserOfflineHandler(uint uid, USER_OFFLINE_REASON reason)
+    {
+        usersInChannel--;
+    }
+
     public VideoSurface makeImageSurface(string goName)
     {
         GameObject go = new GameObject();
@@ -116,12 +99,8 @@ public class AgoraChannel : MonoBehaviour
         }
 
         go.name = goName;
-
-        // to be renderered onto
         go.AddComponent<RawImage>();
 
-        // make the object draggable
-        //go.AddComponent<UIElementDragger>();
         GameObject canvas = GameObject.Find("pnlContainer");
         if (canvas != null)
         {
@@ -136,10 +115,5 @@ public class AgoraChannel : MonoBehaviour
         // configure videoSurface
         VideoSurface videoSurface = go.AddComponent<VideoSurface>();
         return videoSurface;
-    }
-
-    void OnUserOfflineHandler(uint uid, USER_OFFLINE_REASON reason)
-    {
-        usersInChannel--;
-    }
+    }   
 }
