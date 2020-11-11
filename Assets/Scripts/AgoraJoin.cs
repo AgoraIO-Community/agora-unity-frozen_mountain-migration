@@ -42,7 +42,7 @@ public class AgoraJoin : MonoBehaviour
 
         
         
-        //SceneManager.LoadScene("Channel");
+        SceneManager.LoadScene("Channel");
     }
 
     public void LeaveChannelButton()

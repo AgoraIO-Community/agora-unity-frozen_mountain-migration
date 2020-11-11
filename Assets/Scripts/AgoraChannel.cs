@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AgoraChannel : MonoBehaviour
 {
-
+    public GameObject localVideoImage;
 
 
     void Start()
@@ -33,6 +33,14 @@ public class AgoraChannel : MonoBehaviour
     void OnJoinChannelSuccessHandler(string channelName, uint uid, int elapsed)
     {
         Debug.Log("JoinChannelSuccessHandler: uid = " + uid);
+        VideoSurface localVideoSurface = localVideoImage.AddComponent<VideoSurface>();
+
+        localVideoSurface.SetForUser(uid);
+        localVideoSurface.SetEnable(true);
+        localVideoSurface.SetVideoSurfaceType(AgoraVideoSurfaceType.RawImage);
+        localVideoSurface.SetGameFps(30);
+
+        // populate main video feed with local
     }
 
     void OnUserJoinedHandler(uint uid, int elapsed)
@@ -42,9 +50,9 @@ public class AgoraChannel : MonoBehaviour
 
         // find a game object to render video stream from 'uid'
         GameObject go = GameObject.Find(uid.ToString());
-        if (!ReferenceEquals(go, null))
+        if (go != null)
         {
-            return; // reuse
+            return;
         }
 
         // create a GameObject and assign to this new user
@@ -76,7 +84,7 @@ public class AgoraChannel : MonoBehaviour
 
         // make the object draggable
         //go.AddComponent<UIElementDragger>();
-        GameObject canvas = GameObject.Find("cnvMain");
+        GameObject canvas = GameObject.Find("pnlContainer");
         if (canvas != null)
         {
             go.transform.parent = canvas.transform;
