@@ -265,7 +265,6 @@ MonoBehaviour:
   appID: 8ac5b43a061d49d6a57360ce4ae6e92b
   userName: {fileID: 447568908}
   channelName: {fileID: 1870533729}
-  videoSurface: {fileID: 0}
 --- !u!1 &191351124
 GameObject:
   m_ObjectHideFlags: 0

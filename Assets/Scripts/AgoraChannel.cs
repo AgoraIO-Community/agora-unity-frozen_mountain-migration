@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using agora_gaming_rtc;
 using UnityEngine.UI;
 
 public class AgoraChannel : MonoBehaviour
 {
     public GameObject localVideoImage;
+    public Transform spawnPoint;
 
+    private int usersInChannel = 0;
+
+    AudioRecordingDeviceManager audioDevice;
+    public Text audioDeviceText;
+    public Text videoDeviceText;
 
     void Start()
     {
@@ -16,11 +23,28 @@ public class AgoraChannel : MonoBehaviour
             AgoraJoin.mRtcEngine.OnJoinChannelSuccess = OnJoinChannelSuccessHandler;
             AgoraJoin.mRtcEngine.OnUserJoined = OnUserJoinedHandler;
             AgoraJoin.mRtcEngine.OnUserOffline = OnUserOfflineHandler;
+
+            //audioDevice = AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine);
         }
     }
 
-    // create video surface objects to hold the agora video feeds
+    //private void Update()
+    //{
+    //    if (AgoraJoin.mRtcEngine == null)
+    //        return;
 
+    //    AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).CreateAAudioRecordingDeviceManager();
+    //    string audioDeviceName = "null";
+    //    string audioDeviceID = "null";
+
+    //    AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).GetCurrentRecordingDeviceInfo(ref audioDeviceName, ref audioDeviceID);
+
+
+    //    print("audiodevice name: " + audioDeviceName);
+    //    print("audiodevice ID: " + audioDeviceID);
+    //}
+
+    // create video surface objects to hold the agora video feeds
     public void LeaveChannelButton()
     {
         if (AgoraJoin.mRtcEngine != null)
@@ -28,6 +52,8 @@ public class AgoraChannel : MonoBehaviour
             AgoraJoin.mRtcEngine.LeaveChannel();
             AgoraJoin.mRtcEngine.DisableVideoObserver();
         }
+
+        SceneManager.LoadScene("Join");
     }
 
     void OnJoinChannelSuccessHandler(string channelName, uint uid, int elapsed)
@@ -40,7 +66,17 @@ public class AgoraChannel : MonoBehaviour
         localVideoSurface.SetVideoSurfaceType(AgoraVideoSurfaceType.RawImage);
         localVideoSurface.SetGameFps(30);
 
-        // populate main video feed with local
+        string audioDeviceName = "null";
+        string audioDeviceID = "null";
+        AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).CreateAAudioRecordingDeviceManager();
+        AudioRecordingDeviceManager.GetInstance(AgoraJoin.mRtcEngine).GetCurrentRecordingDeviceInfo(ref audioDeviceName, ref audioDeviceID);
+        audioDeviceText.text = audioDeviceName;
+
+        string videoDeviceName = "null";
+        string videoDeviceID = "null";
+        VideoDeviceManager.GetInstance(AgoraJoin.mRtcEngine).CreateAVideoDeviceManager();
+        VideoDeviceManager.GetInstance(AgoraJoin.mRtcEngine).GetVideoDevice(0, ref videoDeviceName, ref videoDeviceID);
+        videoDeviceText.text = videoDeviceName;
     }
 
     void OnUserJoinedHandler(uint uid, int elapsed)
@@ -65,6 +101,8 @@ public class AgoraChannel : MonoBehaviour
             videoSurface.SetVideoSurfaceType(AgoraVideoSurfaceType.RawImage);
             videoSurface.SetGameFps(30);
         }
+
+        usersInChannel++;
     }
 
     private const float Offset = 100;
@@ -89,12 +127,11 @@ public class AgoraChannel : MonoBehaviour
         {
             go.transform.parent = canvas.transform;
         }
+
         // set up transform
         go.transform.Rotate(0f, 0.0f, 180.0f);
-        float xPos = Random.Range(Offset - Screen.width / 2f, Screen.width / 2f - Offset);
-        float yPos = Random.Range(Offset, Screen.height / 2f - Offset);
-        go.transform.localPosition = new Vector3(xPos, yPos, 0f);
-        go.transform.localScale = new Vector3(3f, 4f, 1f);
+        go.transform.localPosition = spawnPoint.localPosition + (Vector3.up * usersInChannel * 300f);
+        go.transform.localScale = Vector3.one * 2.5f;
 
         // configure videoSurface
         VideoSurface videoSurface = go.AddComponent<VideoSurface>();
@@ -103,6 +140,6 @@ public class AgoraChannel : MonoBehaviour
 
     void OnUserOfflineHandler(uint uid, USER_OFFLINE_REASON reason)
     {
-
+        usersInChannel--;
     }
 }
