@@ -16,18 +16,23 @@ public class AgoraJoin : MonoBehaviour
 
     void Start()
     {
-        mRtcEngine = IRtcEngine.GetEngine(appID);
+        if(mRtcEngine == null)
+        {
+            mRtcEngine = IRtcEngine.GetEngine(appID);
 
-        mRtcEngine.EnableVideo();
-        mRtcEngine.EnableVideoObserver();
-        
+            mRtcEngine.EnableVideo();
+            mRtcEngine.EnableVideoObserver();
+        }   
     }
 
     public void JoinChannelButton()
     {
-        mRtcEngine.JoinChannel(channelNameText.text);
+        if(mRtcEngine != null)
+        {
+            mRtcEngine.JoinChannel(channelNameText.text);
 
-        SceneManager.LoadScene("Channel");
+            SceneManager.LoadScene("Channel");
+        }
     }
 
     private void OnApplicationQuit()
