@@ -13,6 +13,8 @@ public class AgoraChannel : MonoBehaviour
     public Text videoDeviceText;
     public Text channelIDText;
 
+    private bool isLocalVideoEnabled; 
+
     void Start()
     {
         if(AgoraJoin.mRtcEngine != null)
@@ -36,6 +38,23 @@ public class AgoraChannel : MonoBehaviour
         SceneManager.LoadScene("Join");
     }
 
+    public void ToggleVideoButton()
+    {
+        if(AgoraJoin.mRtcEngine != null)
+        {
+            isLocalVideoEnabled = !isLocalVideoEnabled;
+
+            if(isLocalVideoEnabled)
+            {
+                AgoraJoin.mRtcEngine.DisableVideoObserver();
+            }
+            else
+            {
+                AgoraJoin.mRtcEngine.EnableVideoObserver();
+            }
+        }
+    }
+
     void OnJoinChannelSuccessHandler(string channelName, uint uid, int elapsed)
     {
         Debug.Log("JoinChannelSuccessHandler: uid = " + uid);
@@ -57,6 +76,8 @@ public class AgoraChannel : MonoBehaviour
 
         // Set user name to name on the top panel
         channelIDText.text = channelName;
+
+        isLocalVideoEnabled = true;
     }
 
     void OnUserJoinedHandler(uint uid, int elapsed)

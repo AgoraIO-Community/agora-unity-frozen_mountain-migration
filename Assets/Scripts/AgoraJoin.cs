@@ -7,6 +7,7 @@ public class AgoraJoin : MonoBehaviour
 {
     public string appID;
     public static IRtcEngine mRtcEngine;
+    public static bool isVideoEnabled;
 
     public Text channelNameText;
 
@@ -21,12 +22,14 @@ public class AgoraJoin : MonoBehaviour
 
         mRtcEngine.EnableVideo();
         mRtcEngine.EnableVideoObserver();
+        
     }
 
     public void JoinChannelButton()
     {
         mRtcEngine.JoinChannel(channelNameText.text);
-        
+        isVideoEnabled = true;
+
         SceneManager.LoadScene("Channel");
     }
 
