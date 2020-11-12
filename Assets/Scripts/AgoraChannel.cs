@@ -86,7 +86,14 @@ public class AgoraChannel : MonoBehaviour
 
     void OnUserOfflineHandler(uint uid, USER_OFFLINE_REASON reason)
     {
-        usersInChannel--;
+        Debug.Log("onUserOffline: uid = " + uid + " reason = " + reason);
+     
+        GameObject go = GameObject.Find(uid.ToString());
+        if (go != null)
+        {
+            Destroy(go);
+            usersInChannel--;
+        }
     }
 
     public VideoSurface makeImageSurface(string goName)
