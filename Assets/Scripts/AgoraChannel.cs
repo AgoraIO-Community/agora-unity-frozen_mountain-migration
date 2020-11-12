@@ -46,11 +46,11 @@ public class AgoraChannel : MonoBehaviour
 
             if(isLocalVideoEnabled)
             {
-                AgoraJoin.mRtcEngine.DisableVideoObserver();
+                AgoraJoin.mRtcEngine.DisableVideo();
             }
             else
             {
-                AgoraJoin.mRtcEngine.EnableVideoObserver();
+                AgoraJoin.mRtcEngine.EnableVideo();
             }
         }
     }
