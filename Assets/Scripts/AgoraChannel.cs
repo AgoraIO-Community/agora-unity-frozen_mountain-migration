@@ -7,12 +7,11 @@ public class AgoraChannel : MonoBehaviour
 {
     public GameObject localVideoImage;
     public Transform spawnPoint;
-
-    private int usersInChannel = 0;
     public Text audioDeviceText;
     public Text videoDeviceText;
     public Text channelIDText;
 
+    private int usersInChannel = 0;
     private bool isLocalVideoEnabled; 
 
     void Start()
