@@ -1627,8 +1627,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 737891999}
-        m_MethodName: ToggleVideoButton
+      - m_Target: {fileID: 737891997}
+        m_MethodName: ToggleLocalDisableVideo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2943,8 +2943,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 737891999}
-        m_MethodName: LeaveChannelButton
+      - m_Target: {fileID: 737891997}
+        m_MethodName: Leave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3001,7 +3001,6 @@ GameObject:
   m_Component:
   - component: {fileID: 737891998}
   - component: {fileID: 737891997}
-  - component: {fileID: 737891999}
   m_Layer: 0
   m_Name: ChannelBehaviour
   m_TagString: Untagged
@@ -3016,14 +3015,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737891996}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e37874625732d884cab15048296926c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendEncodings: 
-  encodings: []
-  currentId: local
+  localVideoImage: {fileID: 1100038284}
+  spawnPoint: {fileID: 790869892}
+  audioDeviceText: {fileID: 656566414}
+  videoDeviceText: {fileID: 1260740197}
+  channelIDText: {fileID: 33710697}
 --- !u!4 &737891998
 Transform:
   m_ObjectHideFlags: 0
@@ -3038,23 +3039,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &737891999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737891996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36de18258564042619db8b8a253f7467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localVideoImage: {fileID: 1100038284}
-  spawnPoint: {fileID: 790869892}
-  audioDeviceText: {fileID: 656566414}
-  videoDeviceText: {fileID: 1260740197}
-  channelIDText: {fileID: 33710697}
 --- !u!1 &780006940
 GameObject:
   m_ObjectHideFlags: 0
